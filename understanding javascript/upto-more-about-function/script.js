@@ -456,3 +456,225 @@ console.log([...question]);
 console.log([...question.keys()]);
 console.log([...question.entries()]);
 console.log([...question.values()]);
+
+
+
+
+
+  // Coding challenge
+
+
+
+const gameEvents = new Map ([
+  [17, 'goal'],
+  [36, 'substitution'],
+  [47, 'goal'],
+  [61, 'substitution'],
+  [64, 'yellow card'],
+  [69, 'red card '],
+  [70, 'substitution'],
+  [72, 'substitution'],
+  [76, ' goal'],
+  [80, 'goal'],
+  [92, 'yellow card']
+
+]);
+
+
+
+const newEvents =  new Set([...gameEvents.values()]);
+console.log(newEvents);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+
+console.log(newEvents.size);
+ console.log(`${90/gameEvents.size}`);
+
+
+
+
+
+
+
+
+console.log(...gameEvents);
+const newSet = new Set([...gameEvents.values()]);
+console.log(newSet);
+ const arrayEvent = new Array([...gameEvents.values()]);
+ console.log(arrayEvent);
+ gameEvents.delete(64);
+ const Events = new Set(...arrayEvent);
+
+ console.log(Events);
+
+
+
+
+
+const  arrayKeys = new Array(...gameEvents.keys());
+console.log(arrayKeys);
+
+
+
+const newArrays = ([...gameEvents.entries()]);
+
+for(const [key,values] of newArrays){
+ key<45? console.log('[First Half] ', `${key}: ${values}`):console.log('b');
+}
+
+
+const airlines = 'Tap Air portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[3]);
+console.log('B737'[0]);
+
+console.log(airlines.length);
+ 
+// first occurence 
+console.log(airlines.indexOf('r'));
+
+// last occurence 
+
+console.log(airlines.lastIndexOf('r'));
+
+
+// searching word
+console.log(airlines.indexOf('portugal'));
+
+
+//Slice method 
+
+console.log(airlines.slice(4));
+
+// 4 = starting point;
+// this doesnot change the existing string 
+
+// begin and end
+
+console.log(airlines.slice(2,6));
+
+
+
+// extracting first word
+const myName = `Sanskar khandelwal`;
+console.log(myName.slice(0, myName.indexOf(' ')));
+
+
+// extracting last word
+
+console.log(myName.slice(myName.lastIndexOf(' ') + 1));
+
+
+// giving negative parameters
+
+console.log(airlines.slice(-2)); 
+console.log(airlines.slice(1,-2));
+
+
+
+
+const checkMiddleSeat = function(seat){
+       //B and E are middle seat 
+      seat.slice(-1)  === 'B'|| seat.slice(-1) === 'E'? console.log("It's Middle seat"): console.log("It's not middle seat");;
+
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('13C');
+checkMiddleSeat('12E');
+
+
+
+
+// More String methods
+   // uppercase and  lower case
+
+console.log(airlines.toUpperCase());
+console.log('sanskar '.toUpperCase());
+
+
+ const passenger = 'SAnskar';
+
+ const passengerLower = passenger.toLocaleLowerCase();
+
+ console.log(`${passenger[0].toUpperCase()}` + `${passenger.slice(1).toLowerCase()}`);
+
+
+
+ const correctName = function(passengerNamesList){
+console.log(passengerNamesList[0].toUpperCase() +  passengerNamesList.slice(1).toLowerCase());
+ };
+
+
+
+correctName('mohan');
+correctName('BAsanti');
+correctName('Gulabo');
+correctName('SiTabo');
+
+
+const email = 'hello@sanskar.io';
+const loginEmail = '   Hello@Sanskar.Io   ';
+
+let trimmedEmail;
+console.log(loginEmail.trim().toLowerCase());
+
+
+
+// there are also trim start and trim end to remove space from start or   from the end 
+
+
+// replacing 
+
+const priceGB = '288,97$'
+console.log(priceGB.replace(',','.').replace('7','9'));
+
+const announcment = 'All passenger come to boarding door 23 . Repeat door 23 ' 
+
+console.log(announcment.replaceAll('door', 'gate'));
+
+// replace only replaces the first occurence so we can use replaceAll 
+
+
+// by using regular expression
+console.log(announcment.replace(/door/g, 'gate'));
+// g stands for global
+
+
+
+
+
+
+
+//Methods that return bollean;
+const planener = "sam A320neo";
+console.log(planener.includes('A320'));
+console.log(planener.includes('Boing'));
+console.log(planener.includes('neo'));
+console.log(planener.startsWith('sam'));
+console.log(planener.endsWith('neo'));
+
+
+// Practising exercise 
+
+const checkBaggage = function(items){
+    const baggage = items.toLowerCase();
+    if(baggage.includes('knife') || baggage.includes('gun')) console.log('You are not allowed on board');
+  else{
+    console.log('Welcome');
+  }
+}
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+
+
+// Working with strings part 3
+
