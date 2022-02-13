@@ -525,6 +525,14 @@ for(const [key,values] of newArrays){
 }
 
 
+
+
+
+// Working with strings
+
+
+
+
 const airlines = 'Tap Air portugal';
 const plane = 'A320';
 
@@ -600,7 +608,7 @@ console.log('sanskar '.toUpperCase());
 
  const passenger = 'SAnskar';
 
- const passengerLower = passenger.toLocaleLowerCase();
+ const passengerLower = passenger.toLowerCase();
 
  console.log(`${passenger[0].toUpperCase()}` + `${passenger.slice(1).toLowerCase()}`);
 
@@ -678,3 +686,120 @@ checkBaggage('Got some snacks and a gun for protection');
 
 // Working with strings part 3
 
+//split  takes string and convert it into the array
+
+console.log('a+ very + nice + string'.split('+'));
+
+console.log('sanskar khandelwal'.split( ' '));
+const [firstName, lastName ] = 'sanskar khandelwal'.split( ' '); 
+console.log(firstName, lastName);
+
+
+
+//join method = opposite of split i.e takes array and convert it into the string
+
+const newName =['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+
+console.log(('sanskar khandelwal').split(' '));
+
+const capitalizeName = function(name){
+   const fullName = name.split(' ');
+   const newArr = [];
+   for(const n of fullName){
+    newArr.push( n[0].toUpperCase() + n.slice(1) );
+   }
+   console.log(newArr.join(' '));
+}
+
+//Another method of doing the same thing
+const capitalizeName2 = function(name){
+   const fullName = name.split(' ');
+   const newArr = [];
+   for(const n of fullName){
+    newArr.push(n.replace(n[0], n[0].toUpperCase()) );
+   }
+   console.log(newArr.join(' '));
+}
+
+
+
+capitalizeName('sanskar khandelwal');
+capitalizeName('surendra kumar khandelwal');
+capitalizeName2('mahendra kumar khandelwal');
+capitalizeName2('harsh vardhan singh khandelwal');
+
+console.log('sanskar khandelwal is op'.split(' '));
+console.log(['sanskar', 'khandelwal', 'is', 'op'].join(' + '));
+
+
+// padding a string 
+// padding a string means adding characters to string until it had desired length.
+
+
+//padding start and end
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(35,'+'));
+
+console.log('same'.length);
+
+
+// Real world example of padding
+
+const maskCreditCard = function(number){
+    const str = number + '';
+  const last  =  str.slice(-4);
+  console.log(last.padStart(str.length,'+'));
+
+}
+
+
+maskCreditCard(46589746);
+maskCreditCard(6498671489);
+
+
+
+// Repeat method  
+// As the name suggest it allow to repeat the same string multiple times
+
+const message2 = 'Bad weather ... All departures delayed... ';
+  console.log(message2.repeat(5));
+
+
+  const planesInLine = function(n){
+    console.log(`There are ${n} planes in Line ${'🛫'.repeat(n)}`);
+  }
+
+  planesInLine(4);
+  planesInLine(2);
+  planesInLine(7);
+
+
+console.log('sanskar_khandelwal'.split('_'));
+
+  // Coding challenge  of strings section
+
+
+  const changeIntoCamelCase = function(name){
+      const first =  name.slice(0, name.indexOf('_'));
+      const last = name.slice(name.indexOf('_')+1).split('_');
+      const newBlankArray = [];
+
+     
+      for(const word of last){
+ newBlankArray.push(word[0].toUpperCase() + word.slice(1));
+      }
+      console.log(first + newBlankArray.join(''));
+  }
+
+  changeIntoCamelCase('sanskar_khandelwal_is_great');
+  changeIntoCamelCase('i_am_op');
+  changeIntoCamelCase('jonas_is_a_great_teacher');
+  
+
+
+
+
+  
