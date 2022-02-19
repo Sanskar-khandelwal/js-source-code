@@ -61,6 +61,40 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+
+const displayMovements = function(movements){
+  containerMovements.innerHTML = '';
+  movements.forEach(function(mov,i){
+    const type = mov> 0 ? 'deposit' : 'withdrawal'
+
+
+  const html = `
+  <div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+    <div class="movements__value">${mov}€</div>
+</div>`;
+
+containerMovements.insertAdjacentHTML('afterbegin', html)
+});
+}
+displayMovements(account1.movements)
+
+
+
+const user = 'Steven Thomas Williams'; // stw
+const createUsername = function(accs ){
+
+accs.forEach(function(acc){ 
+acc.username = acc.owner
+.toLowerCase()
+.split(' ')
+.map(names => names.slice(0,1))
+.join('');
+})
+}
+
+createUsername(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -71,7 +105,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //////////////////////////////////////////////////
 
@@ -97,3 +130,48 @@ console.log(numver1,number2);
 currencies.forEach( function(value,key,map){
 console.log(value,key);
 });
+
+
+
+// Coding challenge 1
+/*
+const juliaDog = [3,5,2,12,7];
+const kateDog = [4,1,15,8,3];
+
+
+
+const checkDogs = function(dogsJulia, dogsKate){
+      const copyJulia = [...dogsJulia];
+      copyJulia.splice(0,1);
+      copyJulia.splice(-2);
+      console.log(copyJulia);
+    const newArray = dogsKate.concat(copyJulia);
+    console.log(newArray);
+    newArray.forEach(function(dogAge,i){
+         let type = dogAge >= 3 ? 'Adult' : 'Puppy 🐶';
+         console.log(`Dog number ${i+1} is an ${type}, and is ${dogAge} year old`);
+    });
+};
+
+checkDogs( juliaDog,kateDog);
+
+
+*/
+
+
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+const movementsUSD = movements.map(function(mov){
+  return mov *eurToUsd;
+});
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for(const mov of movements){
+   movementsUSDfor.push(mov * 1.1); 
+};
+console.log(movementsUSDfor);
+
+
